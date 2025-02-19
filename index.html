@@ -7,12 +7,13 @@ Estructura:
 -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alegre Rexachs</title>
+    <link rel="stylesheet" href="css/index.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +28,21 @@ Estructura:
 
     <header class="header">
 
+        <h1 class="header__h1">
+            <a href="index.html" title="Alegre Rexachs" target="_self">alegre rexachs</a>
+        </h1>
+
+        <nav class="header__nav">
+            <ul class="nav__ul">
+                <li class="nav__li">
+                    <a href="index.html" title="Proyectos" target="_self">proyectos</a>
+                </li>
+
+                <li class="nav__li">
+                    <a href="#" title="Contacto" target="_self">contacto</a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
     <!-- *************** FIN HEADER *************** -->
@@ -34,15 +50,45 @@ Estructura:
     <!-- *************** INICIO MAIN *************** -->
     <main class="main">
 
+        <div class="wrapper__principal">
+            <div class="principal__grid">
 
-        <p>Hola!</p>
+                <div class="principal__img">
+                    <picture>
+                        <img src="#" alt="">
+                    </picture>
 
+                    <h2 class="principal__h2">Proyecto</h2>
+                    <p class="principal__p">Lorem, ipsum dol Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, quibusdam?</p>
+                </div>
+
+                <div class="principal__img">
+                    <picture>
+                        <img src="#" alt="">
+                    </picture>
+
+                    <h2 class="principal__h2">Proyecto</h2>
+                    <p class="principal__p">Lorem, ipsum dol Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, quibusdam?</p>
+                </div>
+
+                <div class="principal__img">
+                    <picture>
+                        <img src="#" alt="">
+                    </picture>
+
+                    <h2 class="principal__h2">Proyecto</h2>
+                    <p class="principal__p">Lorem, ipsum dol Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, quibusdam?</p>
+                </div>
+            </div>
+
+
+        </div>
 
 
     </main>
 
     <!-- *************** FIN MAIN *************** -->
-     <script src="js/index.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
