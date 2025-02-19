@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+
+p a {
+    display: inline;
+}
+
+img,
+picture,
+video,
+iframe {
+    display: block;
+    width: 100%;
+    /* height: initial; */
+}
+
+form,
+input,
+label,
+select,
+option,
+textarea,
+button {
+    font-size: inherit;
+    font-family: inherit;
+    display: block;
+    background-color: transparent;
+}
+
+:root {
+    font-size: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", serif;
+
+}
+
+/**************** FIN RESET *****************/
+
+/**************** INICIO HEADER *****************/
+
+.header{
+    width: 100%;
+    /* min-height: 2rem; */
+    background-color: rgb(70, 238, 70);
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: .5rem 2rem;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+.header__h1{
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.nav__ul{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+}
+.nav__li{}
+
+/**************** FIN HEADER *****************/
+
+/**************** INICIO MAIN *****************/
+
+.main{
+    margin-top: 3.5rem;
+}
+
+.wrapper__principal{
+    width: 100%;
+    min-height: 30rem;
+    background-color: rgb(255, 255, 151);
+}
+.principal__grid{
+    width: 96%;
+    min-width: 20rem;
+    background-color: aqua;
+    margin: 0 auto;
+    padding-top: 5rem;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.principal__img{
+    background-color: navajowhite;
+}
+
+.principal__img picture{
+    width: 100%;
+    min-height: 15rem;
+    background-color: rebeccapurple;
+}
+.principal__h2{
+    background-color: lightsalmon;
+}
+.principal__p{
+    background-color: lightslategray;
+}
