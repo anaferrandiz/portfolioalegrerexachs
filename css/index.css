@@ -111,11 +111,12 @@ body {
     background-color: rgb(255, 255, 151);
 }
 .principal__grid{
-    width: 96%;
+    width: 98%;
     min-width: 20rem;
     background-color: aqua;
-    margin: 0 auto;
+    margin: 0 auto; 
     padding-top: 5rem;
+    gap: .7rem;
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -126,12 +127,104 @@ body {
 
 .principal__img picture{
     width: 100%;
-    min-height: 15rem;
-    background-color: rebeccapurple;
+    /* min-height: 15rem; */
+    /* background-color: rebeccapurple; */
 }
+
+.principal__img picture img {
+    border-radius: .7rem;
+}
+
 .principal__h2{
     background-color: lightsalmon;
+    margin-top: 1.5rem;
+    font-size: 1.2em;
 }
 .principal__p{
     background-color: lightslategray;
+    margin-top: 1.5rem;
 }
+
+/***************** INICIO CARRUSEL *****************/
+
+.carrusel{
+    width: 100%;
+    background-color: lightgrey;
+    /* margin: 2rem auto; */
+    position: relative;
+
+    overflow: hidden;
+}
+.carrusel__img{
+    width: 300%;
+    /* 300% porque tiene 3 imágenes */
+    background-color: orange;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* gap: 1rem; */
+
+    transition: all 0.5s ease;
+    transform: translateX(0);
+}
+.carrusel__imgs{
+    min-height: 200px;
+    background-color: aqua;
+}
+/* .carrusel__arrow{
+    width: 3rem;
+    height: 3rem;
+    background-color: rgb(186, 185, 185);
+
+    position: absolute;
+    top: calc(50% - 1.5rem);
+} */
+.siguiente{
+    right: 0;
+}
+.anterior{
+    left: 0;
+}
+.carrusel__ul{
+    width: 100%;
+    position: absolute;
+    bottom: .6rem;
+    /* background-color: brown; */
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.carrusel__btn{
+    width: 4vw;
+    height: .3rem;
+    background-color: rgb(125, 125, 125);
+    border-radius: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.carrusel__btn span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background-color: rgb(217, 217, 217);
+    transition: width 3s linear;
+}
+
+.progress-bar { 
+    position: absolute; 
+    bottom: 10px; 
+    left: 0; 
+    width: 0%; 
+    height: 5px; 
+    background: rgb(255, 241, 241); /* Cambio de color para destacar */ 
+}
+
+
+/***************** FIN CARRUSEL *****************/

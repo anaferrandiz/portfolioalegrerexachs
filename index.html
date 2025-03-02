@@ -54,30 +54,75 @@ Estructura:
             <div class="principal__grid">
 
                 <div class="principal__img">
-                    <picture>
-                        <img src="#" alt="">
-                    </picture>
+
+                    <div class="carrusel">
+                        <div class="carrusel__img">
+                            <picture>
+                                <source srcset="assets/img_prova_03_s.webp" media="(max-width:1000px)">
+                                <img src="assets/img_prova_03.webp" alt="Imagen" class="carrusel_imgs">
+                            </picture>
+
+                            <picture>
+                                <source srcset="assets/img_prova_02_s.webp" media="(max-width:1000px)">
+                                <img src="assets/img_prova_02.webp" alt="Imagen" class="carrusel_imgs">
+                            </picture>
+
+                            <picture>
+                                <source srcset="assets/img_prova_s.webp" media="(max-width:1000px)">
+                                <img src="assets/img_prova.webp" alt="Imagen" class="carrusel_imgs">
+                            </picture>
+                        </div>
+                        
+                        <div class="progress-bar" id="progressBar"></div> <!-- Barra de progreso añadida -->
+
+                        <!-- Botones Siguiente y Anterior -->
+                        <button class="carrusel__arrow siguiente"></button>
+                        <button class="carrusel__arrow anterior"></button>
+
+
+                        <!-- Botones -->
+                        <ul class="carrusel__ul">
+                            <li class="carrusel__li">
+                                <button class="carrusel__btn"><span></span></button>
+                            </li>
+
+                            <li class="carrusel__li">
+                                <button class="carrusel__btn"><span></span></button>
+                            </li>
+
+                            <li class="carrusel__li">
+                                <button class="carrusel__btn"><span></span></button>
+                            </li>
+                        </ul>
+
+                    </div>
 
                     <h2 class="principal__h2">Proyecto</h2>
-                    <p class="principal__p">Lorem, ipsum dol Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, quibusdam?</p>
+                    <p class="principal__p">Lorem, ipsum dol Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quam, quibusdam? Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
                 </div>
 
                 <div class="principal__img">
                     <picture>
-                        <img src="#" alt="">
+                        <source srcset="assets/img_prova_s.webp" media="(max-width:1000px)">
+                        <img src="assets/img_prova.webp" alt="Imagen" class="imgs">
                     </picture>
 
                     <h2 class="principal__h2">Proyecto</h2>
-                    <p class="principal__p">Lorem, ipsum dol Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, quibusdam?</p>
+                    <p class="principal__p">Lorem, ipsum dol Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quam, quibusdam? Lorem ipsum dolor sit amet.</p>
                 </div>
 
                 <div class="principal__img">
                     <picture>
-                        <img src="#" alt="">
+                        <source srcset="assets/img_prova_s.webp" media="(max-width:1000px)">
+                        <img src="assets/img_prova.webp" alt="Imagen" class="imgs">
                     </picture>
 
                     <h2 class="principal__h2">Proyecto</h2>
-                    <p class="principal__p">Lorem, ipsum dol Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, quibusdam?</p>
+                    <p class="principal__p">Lorem, ipsum dol Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quam, quibusdam? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, facilis! Lorem
+                        ipsum dolor sit amet consectetur.</p>
                 </div>
             </div>
 
