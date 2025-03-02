@@ -71,7 +71,7 @@ body {
 .header{
     width: 100%;
     /* min-height: 2rem; */
-    background-color: rgb(70, 238, 70);
+    /* background-color: rgb(70, 238, 70); */
 
     display: flex;
     flex-flow: row nowrap;
@@ -108,12 +108,12 @@ body {
 .wrapper__principal{
     width: 100%;
     min-height: 30rem;
-    background-color: rgb(255, 255, 151);
+    /* background-color: rgb(255, 255, 151); */
 }
 .principal__grid{
     width: 98%;
     min-width: 20rem;
-    background-color: aqua;
+    /* background-color: aqua; */
     margin: 0 auto; 
     padding-top: 5rem;
     gap: .7rem;
@@ -122,7 +122,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
 }
 .principal__img{
-    background-color: navajowhite;
+    /* background-color: navajowhite; */
 }
 
 .principal__img picture{
@@ -136,12 +136,12 @@ body {
 }
 
 .principal__h2{
-    background-color: lightsalmon;
+    /* background-color: lightsalmon; */
     margin-top: 1.5rem;
     font-size: 1.2em;
 }
 .principal__p{
-    background-color: lightslategray;
+    /* background-color: lightslategray; */
     margin-top: 1.5rem;
 }
 
@@ -158,7 +158,7 @@ body {
 .carrusel__img{
     width: 300%;
     /* 300% porque tiene 3 imágenes */
-    background-color: orange;
+    /* background-color: orange; */
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -167,9 +167,10 @@ body {
     transition: all 0.5s ease;
     transform: translateX(0);
 }
+
 .carrusel__imgs{
     min-height: 200px;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 /* .carrusel__arrow{
     width: 3rem;
@@ -197,6 +198,26 @@ body {
     align-items: center;
     gap: 1rem;
 }
+
+.wrapper__logproyecto__h3{
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoproyecto__h3{
+    color: white;
+    font-size: 3.5vw;
+    font-weight: 600;
+    
+}
+
 
 .carrusel__btn{
     width: 4vw;
@@ -228,3 +249,26 @@ body {
 
 
 /***************** FIN CARRUSEL *****************/
+
+
+/****************** MEDIA QUERIES ******************/
+
+@media (max-width: 1000px) {
+   
+    .principal__grid{
+        width: 96%;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 6rem;
+    }
+    
+    .logoproyecto__h3{
+        font-size: 8vw;
+    }
+   
+    .carrusel__btn{
+        width: 15vw;
+    }
+}
+
+
+
