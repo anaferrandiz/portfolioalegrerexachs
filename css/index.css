@@ -278,7 +278,7 @@ body {
 
 /***************** FIN CARRUSEL *****************/
 
-/* CAMBIAR ESTO, ES PARA PONER EN MODO MÓVIL PERO LO TENGO A MEDIAS */
+/* CAMBIAR ESTO, ES PARA PONER EN MODO MÓVIL PEROO LO TENGO A MEDIAS */
 .tab {
     background-color: #f1f1f1;
     padding: 10px;
@@ -344,6 +344,7 @@ body {
     }
     .header {
         padding: 0;
+        background-color: white;
     }
 
     .header__h1,

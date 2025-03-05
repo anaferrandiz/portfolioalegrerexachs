@@ -136,3 +136,12 @@ function toggleTab(tabId) {
         content.style.display = "none";
     }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    let tabs = document.querySelectorAll(".tab");
+    tabs.forEach(tab => {
+        tab.addEventListener("touchstart", function() {
+            this.click();
+        });
+    });
+});
