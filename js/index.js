@@ -127,7 +127,6 @@ document.querySelectorAll('.tab').forEach(tab => {
 
 // --------- PESTAÑAS
 
-
 function toggleTab(tabId) {
     var content = document.getElementById(tabId);
     if (content.style.display === "none" || content.style.display === "") {
@@ -140,8 +139,13 @@ function toggleTab(tabId) {
 document.addEventListener("DOMContentLoaded", function() {
     let tabs = document.querySelectorAll(".tab");
     tabs.forEach(tab => {
-        tab.addEventListener("touchstart", function() {
-            this.click();
+        tab.addEventListener("click", function(event) {
+            event.preventDefault();
+            toggleTab(this.nextElementSibling.id);
+        });
+        tab.addEventListener("touchend", function(event) {
+            event.preventDefault();
+            toggleTab(this.nextElementSibling.id);
         });
     });
 });
