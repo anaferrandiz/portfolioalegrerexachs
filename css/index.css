@@ -278,6 +278,20 @@ body {
 
 /***************** FIN CARRUSEL *****************/
 
+/* CAMBIAR ESTO, ES PARA PONER EN MODO MÓVIL PERO LO TENGO A MEDIAS */
+.tab {
+    background-color: #f1f1f1;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+}
+.content {
+    display: none;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
 
 /****************** MEDIA QUERIES ******************/
 
