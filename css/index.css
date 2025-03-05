@@ -286,6 +286,7 @@ body {
     border: 1px solid #ccc;
     margin-top: 5px;
     user-select: none;
+    touch-action: manipulation;
 }
 .content {
     display: none;
