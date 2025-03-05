@@ -344,6 +344,7 @@ body {
     }
     .header {
         padding: 0;
+        background-color: white;
     }
 
     .header__h1,
