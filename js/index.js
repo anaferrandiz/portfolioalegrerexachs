@@ -115,3 +115,11 @@ carruseles.forEach(carrusel => {
     carrusel.addEventListener('mouseenter', startCarousel);
     carrusel.addEventListener('mouseleave', stopCarousel);
 });
+
+document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+            this.click();
+        }
+    });
+});
