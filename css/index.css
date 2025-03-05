@@ -278,13 +278,14 @@ body {
 
 /***************** FIN CARRUSEL *****************/
 
-/* CAMBIAR ESTO, ES PARA PONER EN MODO MÓVIL PEROO LO TENGO A MEDIAS */
+/* CAMBIAR ESTO, ES PARA PONER EN MODOO MÓVIL PEROO LO TENGO A MEDIAS */
 .tab {
     background-color: #f1f1f1;
     padding: 10px;
     cursor: pointer;
     border: 1px solid #ccc;
     margin-top: 5px;
+    user-select: none;
 }
 .content {
     display: none;
