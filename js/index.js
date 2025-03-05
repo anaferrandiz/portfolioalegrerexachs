@@ -14,6 +14,10 @@ carruseles.forEach(carrusel => {
     let carrouselContainer = carrusel.querySelector('.carrusel__img');
     let interval;
 
+    // Variables para detectar el gesto táctil
+    let touchStartX = 0;
+    let touchEndX = 0;
+
     const desplazarContainer = function () {
         carrouselContainer.style.transform = `translateX(-${posicion * (100 / totalImagenes)}%)`;
         actualizarProgressBar();
@@ -43,6 +47,41 @@ carruseles.forEach(carrusel => {
     const stopCarousel = function () {
         clearInterval(interval);
     };
+
+    // Función para manejar el gesto táctil
+    const handleTouchStart = (e) => {
+        touchStartX = e.touches[0].clientX; // Captura la posición inicial del toque
+    };
+
+    const handleTouchMove = (e) => {
+        if (!touchStartX) return; // Si no hay un toque inicial, no hacer nada
+        touchEndX = e.touches[0].clientX; // Captura la posición final del toque
+    };
+
+    const handleTouchEnd = () => {
+        if (!touchStartX || !touchEndX) return; // Si no hay un toque inicial o final, no hacer nada
+
+        const diffX = touchStartX - touchEndX; // Calcula la diferencia en el eje X
+
+        if (diffX > 50) {
+            // Deslizamiento hacia la izquierda (pasar a la siguiente imagen)
+            posicion = (posicion + 1) % totalImagenes;
+            desplazarContainer();
+        } else if (diffX < -50) {
+            // Deslizamiento hacia la derecha (pasar a la imagen anterior)
+            posicion = (posicion - 1 + totalImagenes) % totalImagenes;
+            desplazarContainer();
+        }
+
+        // Reinicia las variables
+        touchStartX = 0;
+        touchEndX = 0;
+    };
+
+    // Agregar event listeners para los gestos táctiles
+    carrusel.addEventListener('touchstart', handleTouchStart, false);
+    carrusel.addEventListener('touchmove', handleTouchMove, false);
+    carrusel.addEventListener('touchend', handleTouchEnd, false);
 
     carrouselBtns.forEach(function (btn, i) {
         btn.addEventListener('click', function () {
