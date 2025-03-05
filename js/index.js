@@ -10,6 +10,7 @@ carruseles.forEach(carrusel => {
     let siguiente = carrusel.querySelector('.siguiente');
     let anterior = carrusel.querySelector('.anterior');
     const carrouselBtns = carrusel.querySelectorAll('.carrusel__btn span');
+    const carrouselButton = carrusel.querySelectorAll('.carrusel__btn');
     let carrouselContainer = carrusel.querySelector('.carrusel__img');
     let interval;
 
@@ -25,7 +26,7 @@ carruseles.forEach(carrusel => {
         });
 
         setTimeout(() => {
-            carrouselBtns[posicion].style.transition = "width 5s linear";
+            carrouselBtns[posicion].style.transition = "width 3s linear";
             carrouselBtns[posicion].style.width = "100%";
         }, 10);
     };
@@ -36,7 +37,7 @@ carruseles.forEach(carrusel => {
         interval = setInterval(() => {
             posicion = (posicion + 1) % totalImagenes;
             desplazarContainer();
-        }, 5000);
+        }, 3000);
     };
 
     const stopCarousel = function () {
@@ -64,6 +65,14 @@ carruseles.forEach(carrusel => {
         });
     }
 
-    // Iniciar el carrusel automáticamente
-    startCarousel();
+    carrouselButton.forEach(function (btn, i) {
+        btn.addEventListener('click', function () {
+            posicion = i;
+            desplazarContainer();
+        });
+    });
+
+    // Activar el carrusel al pasar el ratón sobre el carrusel
+    carrusel.addEventListener('mouseenter', startCarousel);
+    carrusel.addEventListener('mouseleave', stopCarousel);
 });
