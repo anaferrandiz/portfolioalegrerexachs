@@ -1,5 +1,6 @@
 'use strict';
 
+// CARRUSELES INDEX 
 // Selecciona todos los carruseles
 const carruseles = document.querySelectorAll('.carrusel');
 
@@ -149,3 +150,5 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+// FIN CARRUSELES INDEX 
