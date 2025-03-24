@@ -142,7 +142,7 @@ body {
 
 .principal__img {
     /* background-color: navajowhite; */
-
+    margin-bottom: 4rem;
 }
 
 .principal__img picture {
@@ -285,6 +285,7 @@ body {
     user-select: none;
     touch-action: manipulation;
 }
+
 .content {
     display: none;
     padding: 10px;
@@ -303,7 +304,7 @@ body {
     }
 
     .logoproyecto__h3 {
-        font-size: 8vw;
+        font-size: 12vw;
     }
 
     .carrusel__btn {
@@ -338,9 +339,10 @@ body {
         /* backdrop-filter: blur(.58rem); */
     }
 
-    .nav__li:first-child{
+    .nav__li:first-child {
         margin-bottom: 1rem;
     }
+
     .header {
         padding: 0;
         background-color: white;
@@ -349,6 +351,10 @@ body {
     .header__h1,
     .header__btn {
         padding: .5rem 1rem;
+    }
+
+    .principal__img {
+        margin-bottom: 0;
     }
 
 }
