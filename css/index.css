@@ -132,7 +132,7 @@ body {
     min-width: 20rem;
     /* background-color: aqua; */
     margin: 0 auto;
-    padding-top: 5rem;
+    padding-top: 3rem;
     gap: .7rem;
 
     display: grid;
@@ -238,9 +238,29 @@ body {
     color: white;
     font-size: 3.5vw;
     font-weight: 600;
+    cursor: pointer;
 
 }
 
+.konngol__h3 {
+    /* max-width: 70%; */
+    /* background-color: red; */
+    /* text-align: center; */
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.konngol__span {
+    /* background-color: red; */
+}
+
+.rewbe__span {
+    /* background-color: blue; */
+    margin-top: -.5rem;
+}
 
 .carrusel__btn {
     width: 4vw;
