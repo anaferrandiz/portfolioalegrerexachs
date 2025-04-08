@@ -125,30 +125,51 @@ document.querySelectorAll('.tab').forEach(tab => {
     });
 });
 
+// FIN CARRUSELES INDEX 
+
 
 // --------- PESTAÑAS
 
+let touchStart = 0;
+
 function toggleTab(tabId) {
     var content = document.getElementById(tabId);
+
+    // Cambiar la visibilidad de la tabla: ocultar si está visible, mostrar si está oculta.
     if (content.style.display === "none" || content.style.display === "") {
-        content.style.display = "block";
+        content.style.display = "block";  // Mostrar tabla
     } else {
-        content.style.display = "none";
+        content.style.display = "none";   // Ocultar tabla
     }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
     let tabs = document.querySelectorAll(".tab");
+
     tabs.forEach(tab => {
+        // Añadir evento de clic para desplegar las tablas
         tab.addEventListener("click", function(event) {
-            event.preventDefault();
-            toggleTab(this.nextElementSibling.id);
+            event.preventDefault(); // Evitar acción por defecto (si existe)
+            const tabId = this.nextElementSibling.id;
+            toggleTab(tabId);  // Desplegar/ocultar el contenido asociado
         });
+
+        // Añadir evento de touchstart para detectar si es un toque
+        tab.addEventListener("touchstart", function(event) {
+            // Registrar la posición de inicio del toque
+            touchStart = event.touches[0].clientY;
+        });
+
+        // Añadir evento de touchend con un pequeño retraso
         tab.addEventListener("touchend", function(event) {
-            event.preventDefault();
-            toggleTab(this.nextElementSibling.id);
+            const touchEnd = event.changedTouches[0].clientY;
+            
+            // Verificar si el usuario está desplazando (más de un pequeño umbral de distancia)
+            if (Math.abs(touchStart - touchEnd) < 20) { // Umbral de 20px para detectar un clic
+                event.preventDefault();  // Evitar acción por defecto
+                const tabId = this.nextElementSibling.id;
+                toggleTab(tabId);  // Desplegar/ocultar el contenido asociado
+            }
         });
     });
 });
-
-// FIN CARRUSELES INDEX 
