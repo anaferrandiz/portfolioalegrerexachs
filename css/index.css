@@ -111,7 +111,29 @@ body {
     gap: 1rem;
 }
 
-.nav__li {}
+.nav__li a {
+    position: relative;
+    font-size: 1em;
+}
+
+.nav__li a::before {
+    content: "⌵";
+    display: inline-block;
+    margin-right: .7rem;
+    transform: rotate(-90deg);
+    vertical-align: middle;
+    font-size: 1em;
+}
+
+.arrow{
+    width: 3rem;
+    position: fixed;
+    right: 1rem;
+    bottom: 3.3rem;
+    z-index: 1;
+    cursor: pointer;
+}
+
 
 /**************** FIN HEADER *****************/
 
@@ -150,6 +172,7 @@ body {
     /* min-height: 15rem; */
     /* background-color: rebeccapurple; */
 }
+
 .principal__h2 {
     /* background-color: lightsalmon; */
     margin-top: 1.4rem;
@@ -300,7 +323,7 @@ body {
     /* Cambio de color para destacar */
 }
 
-.sin__carrusel{
+.sin__carrusel {
     width: 100%;
     /* min-height: 100%; */
     /* background-color: red; */
@@ -308,7 +331,7 @@ body {
 
 }
 
-.opacidad__negro{
+.opacidad__negro {
     width: 100%;
     min-height: 100%;
     background-color: black;
@@ -353,7 +376,7 @@ body {
     .header__nav {
         width: 100%;
         display: none;
-        
+
     }
 
     .header__nav.isActive {
@@ -369,7 +392,7 @@ body {
         align-items: flex-start;
         position: absolute;
         font-size: 1.5em;
-        
+
 
         padding: 7rem 0 0 4rem;
         /* margin-top: 1rem; */
@@ -395,12 +418,14 @@ body {
         margin-bottom: 0;
     }
 
-    .wrapper__principal{
+    .wrapper__principal {
         display: none;
     }
-    .wrapper__principal__mobile{
+
+    .wrapper__principal__mobile {
         margin: 6rem 0;
     }
+
     .tab {
         margin: 0 .7rem 0 .6rem;
         font-size: 1.2em;
@@ -412,7 +437,7 @@ body {
         /* user-select: none; */
         touch-action: manipulation;
     }
-   
+
     .content {
         display: none;
         padding: 0 1rem 2rem 1rem;
@@ -426,7 +451,10 @@ body {
 }
 
 @media (min-width: 1001px) {
-    .wrapper__principal__mobile{
+    .wrapper__principal__mobile {
+        display: none;
+    }
+    .arrow__mobile{
         display: none;
     }
 }
