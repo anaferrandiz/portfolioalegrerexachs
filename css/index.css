@@ -150,12 +150,18 @@ body {
     /* min-height: 15rem; */
     /* background-color: rebeccapurple; */
 }
-
-
 .principal__h2 {
     /* background-color: lightsalmon; */
-    margin-top: 1.5rem;
-    font-size: 1.2em;
+    margin-top: 1.4rem;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.principal__h4 {
+    /* background-color: lightsalmon; */
+    margin-top: 1.3rem;
+    font-size: 1.1em;
+    font-weight: 600;
 }
 
 .principal__p {
@@ -320,23 +326,7 @@ body {
 
 /***************** FIN CARRUSEL *****************/
 
-/* CAMBIAR ESTO, ES PARA PONER EN MODOO MÓVIL PEROO LO TENGO A MEDIAS */
-.tab {
-    background-color: #f1f1f1;
-    padding: 10px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    margin-top: 5px;
-    user-select: none;
-    touch-action: manipulation;
-}
 
-.content {
-    display: none;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-top: none;
-}
 
 /****************** MEDIA QUERIES ******************/
 
@@ -411,7 +401,28 @@ body {
     .wrapper__principal__mobile{
         margin: 6rem 0;
     }
+    .tab {
+        margin: 0 .7rem 0 .6rem;
+        font-size: 1.2em;
+        font-weight: 300;
+        background-color: #ffffff;
+        padding: 1rem 0;
+        cursor: pointer;
+        border-top: 1px solid #000000;
+        /* user-select: none; */
+        touch-action: manipulation;
+    }
+   
+    .content {
+        display: none;
+        padding: 0 1rem 2rem 1rem;
+        /* border: 1px solid #ccc; */
+        border-top: none;
+    }
 
+    .principal__p {
+        margin-top: 1rem;
+    }
 }
 
 @media (min-width: 1001px) {
