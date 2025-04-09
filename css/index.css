@@ -118,7 +118,7 @@ body {
 
 
 .arrow{
-    width: 3rem;
+    width: 2rem;
     position: fixed;
     right: 1rem;
     bottom: 3.3rem;
@@ -258,6 +258,14 @@ body {
     z-index: 1;
 }
 
+.wrapper__logproyecto__h3 img {
+    width: 18vh;
+}
+
+ .logo__konngol img{
+    width: 25vh;
+}
+
 .logoproyecto__h3 {
     color: white;
     font-size: 3.5vw;
@@ -265,6 +273,7 @@ body {
     cursor: pointer;
 
 }
+
 
 .konngol__h3 {
     /* max-width: 70%; */
@@ -449,6 +458,10 @@ body {
         transform: rotate(-90deg);
         vertical-align: middle;
         font-size: 1em;
+    }
+
+    .wrapper__logproyecto__h3 img {
+        /* width: 8rem; */
     }
 }
 
