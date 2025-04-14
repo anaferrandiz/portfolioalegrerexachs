@@ -438,7 +438,7 @@ body {
         background-color: #ffffff;
         padding: 1rem 0;
         cursor: pointer;
-        border-top: 1px solid #000000;
+        border-top: 1px dotted #000000;
         /* user-select: none; */
         touch-action: manipulation;
     }
