@@ -149,9 +149,6 @@ body {
 
 .main {
     margin-top: 3.5rem;
-    opacity: 0;
-    /* Empieza invisible */
-    animation: aparecer 1s ease-out 0.3s forwards;
 }
 
 
@@ -160,6 +157,8 @@ body {
     /* min-height: 30rem; */
     /* background-color: rgb(255, 255, 151); */
     margin-bottom: 4rem;
+    opacity: 0;
+    animation: aparecer 1s ease-out 0.3s forwards;
 }
 
 .principal__grid {
