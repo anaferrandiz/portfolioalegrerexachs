@@ -133,6 +133,12 @@ body {
     margin-bottom: 2rem;
 }
 
+.arrelat__h2{
+    font-size: 5em;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
 .pedalucha__h2:hover {
     color: rgb(250, 226, 47);
     background-color: rgb(86, 88, 217);
@@ -140,6 +146,7 @@ body {
 
 .pedalucha__description {
     max-width: 80%;
+    margin-bottom: 1rem;
 }
 
 .wrapper__buttons__next {
@@ -183,6 +190,18 @@ body {
     display: none;
 }
 
+
+/*************************** INICIO PÁGINA ARRELA'T  *****************************/
+
+.pedalucha__imgs .imagen__arrelat__01{
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+/*************************** FIN PÁGINA ARRELA'T  *******************************/
+
+
 /****************** MEDIA QUERIES ***************** */
 
 @media (max-width: 1000px) {
@@ -196,7 +215,7 @@ body {
         width: 100%;
     }
 
-    .pedalucha__h2 {
+    .pedalucha__h2, .arrelat__h2{
         font-size: 2.4em;
         margin-top: 3rem;
     }
