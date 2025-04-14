@@ -89,6 +89,12 @@ body {
 .header__h1 {
     font-size: 2em;
     font-weight: 500;
+    transition: all .4s ease;
+}
+
+.header__h1:hover{
+     color: #7df65b;
+     transform: scale(1.03);
 }
 
 .header__btn {
@@ -116,6 +122,15 @@ body {
 .nav__li a {
     position: relative;
     font-size: 1em;
+}
+
+.nav__li{
+   transition: all .4s ease;
+}
+
+.nav__li:hover{
+    color: #7df65b;
+    transform: scale(1.03);
 }
 
 
@@ -273,9 +288,22 @@ body {
     font-size: 3.5vw;
     font-weight: 600;
     cursor: pointer;
-
+    transition: all .4s ease;
 }
 
+.logoproyecto__h3:hover{
+    transform: scale(1.05);
+}
+
+.h3__pedalucha{
+    transition: all .4s ease;
+}
+
+.h3__pedalucha:hover{
+    transform: scale(1.05);
+    color: rgb(114, 28, 219);
+    background-color: yellow;
+}
 
 .konngol__h3 {
     /* max-width: 70%; */
