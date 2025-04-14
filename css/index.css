@@ -168,8 +168,8 @@ body {
 .principal__h2 {
     /* background-color: lightsalmon; */
     margin-top: 1.4rem;
-    font-size: 1.1em;
-    font-weight: 600;
+    font-size: 1.2em;
+    font-weight: 400;
 }
 
 .principal__h4 {
@@ -302,6 +302,7 @@ body {
     border-radius: 2rem;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
     /* display: none; */
 }
 
