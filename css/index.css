@@ -98,7 +98,7 @@ body {
 }
 
 .header__h1:hover {
-    color: #22672f;
+    color: #ff8d36;
     transform: scale(1.03);
 }
 
@@ -134,7 +134,7 @@ body {
 }
 
 .nav__li:hover {
-    color: #22672f;
+    color: #ff8d36;
     transform: scale(1.03);
 }
 
