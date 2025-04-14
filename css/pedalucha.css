@@ -71,7 +71,6 @@ body {
     width: 100%;
     min-height: 100vh;
     /* background-color: rgb(247, 255, 161); */
-
 }
 
 .principal__grid__pedalucha {
@@ -81,21 +80,25 @@ body {
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "imgs text";
 
     position: relative;
 }
+
 
 .grid__pedalucha__imgs {
     width: 100%;
     min-height: 100vh;
     /* background-color: rgb(240, 106, 106); */
     position: relative;
+    grid-area: imgs;
 }
 
 .grid__pedalucha__text {
     width: 100%;
     /* min-height: 100vh; */
     /* background-color: rgb(247, 255, 161); */
+    grid-area: text;
 }
 
 .sticky__pedalucha {
@@ -125,9 +128,14 @@ body {
 .pedalucha__h2 {
     font-size: 5em;
     font-weight: 600;
-    color: rgb(114, 28, 219);
-    background-color: yellow;
+    color: rgb(86, 88, 217);
+    background-color: rgb(250, 226, 47);
     margin-bottom: 2rem;
+}
+
+.pedalucha__h2:hover {
+    color: rgb(250, 226, 47);
+    background-color: rgb(86, 88, 217);
 }
 
 .pedalucha__description {
@@ -145,7 +153,12 @@ body {
     right: 2rem;
     bottom: -17rem;
     padding-bottom: 2rem;
-  
+    color: rgb(190, 190, 190);
+
+}
+
+.wrapper__buttons__next a:hover {
+    color: black;
 }
 
 .proyecto__anterior::before {
@@ -160,10 +173,14 @@ body {
 .proyecto__siguiente::after {
     content: "⌵";
     display: inline-block;
-    margin-left:.2rem ;
+    margin-left: .2rem;
     transform: rotate(-90deg);
     vertical-align: middle;
     font-size: 1em;
+}
+
+.wrapper__buttons__mobile {
+    display: none;
 }
 
 /****************** MEDIA QUERIES ***************** */
@@ -171,14 +188,52 @@ body {
 @media (max-width: 1000px) {
     .principal__grid__pedalucha {
 
-        grid-template-columns: repeat(1, 1fr);
+        /* grid-template-columns: repeat(1, 1fr); */
 
     }
-
 
     .pedalucha__imgs {
         width: 100%;
-
     }
 
+    .pedalucha__h2 {
+        font-size: 2.4em;
+        margin-top: 3rem;
+    }
+
+    .pedalucha__description {
+        max-width: 90%;
+        margin-bottom: 1rem;
+    }
+
+    .principal__grid__pedalucha {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "text"
+            "imgs";
+    }
+
+    .wrapper__buttons__next {
+        display: none;
+    }
+
+    .wrapper__buttons__mobile {
+        display: block;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 2rem;
+        margin:0 1.5rem 10rem 1.5rem;
+        color: rgb(190, 190, 190);
+    }
+    .wrapper__buttons__mobile a:hover{
+        color: black;
+    }
+    
+
+    .wrapper__principal__pedalucha {
+        margin-bottom: 3rem;
+
+    }
 }
