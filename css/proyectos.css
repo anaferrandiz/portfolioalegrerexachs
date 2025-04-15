@@ -127,6 +127,16 @@ body {
     border-radius: 0.5rem;
 }
 
+.imagen__mbolo{
+    margin-bottom: 6rem;
+}
+
+.wrap__vertical__imgs{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
 .pedalucha__h2 {
     font-size: 5em;
     font-weight: 600;
@@ -158,13 +168,14 @@ body {
     justify-content: flex-end;
     align-items: center;
     gap: 1rem;
-    position: absolute;
+    position: fixed;
     right: 2rem;
-    bottom: -17rem;
+    bottom: 8rem;
     padding-bottom: 2rem;
     color: rgb(190, 190, 190);
 
 }
+
 
 .wrapper__buttons__next a:hover {
     color: black;
