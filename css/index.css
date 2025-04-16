@@ -473,7 +473,7 @@ body {
     .header {
         padding: 0;
         background-color: white;
-        z-index: 2;
+        z-index: 3;
     }
 
     .header__h1,
