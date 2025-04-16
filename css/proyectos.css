@@ -216,7 +216,20 @@ body {
     margin-top: -2rem;
 }
 
+.wrapper__contacto{
+    width: 100%;
+    min-height: 90vh;
 
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.ig{
+    width: 80%;
+    margin-top: 2rem;
+}
 /*************************** INICIO PÁGINA ARRELA'T  *****************************/
 
 .pedalucha__imgs .imagen__arrelat__01 {
