@@ -53,6 +53,7 @@ button {
 
 :root {
     font-size: 100%;
+    --color-enlaces: #ff8d36;
 }
 
 html {
@@ -68,6 +69,8 @@ body {
     background-color: #2483475c;
     color: #111111;
 }
+
+
 
 /**************** FIN RESET *****************/
 
@@ -387,6 +390,11 @@ body {
     opacity: 0;
     transition: opacity 0.3s ease;
 }
+
+.enlaces:hover{
+    color: var(--color-enlaces);
+}
+
 
 /***************** FIN CARRUSEL *****************/
 
