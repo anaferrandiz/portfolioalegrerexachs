@@ -184,7 +184,7 @@ body {
 
 .principal__img {
     /* background-color: white; */
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .principal__img picture {
@@ -391,7 +391,7 @@ body {
     transition: opacity 0.3s ease;
 }
 
-.enlaces:hover{
+.enlaces:hover {
     color: var(--color-enlaces);
 }
 
@@ -482,7 +482,7 @@ body {
     }
 
     .principal__img {
-        margin-bottom: 0;
+        margin-bottom: 2rem;
     }
 
     .wrapper__principal {
@@ -506,11 +506,24 @@ body {
     }
 
     .content {
-        display: none;
-        padding: 0 1rem 2rem 1rem;
+        /* display: none; */
+        padding: 0 1rem 0rem 1rem;
         /* border: 1px solid #ccc; */
         border-top: none;
+
+
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: height .3s ease, opacity 0.3s ease;
+
     }
+
+    .content.visible {
+        opacity: 1;
+        padding-bottom: 2rem; 
+    }
+
 
     .principal__p {
         margin-top: 1rem;

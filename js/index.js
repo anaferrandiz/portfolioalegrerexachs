@@ -133,15 +133,43 @@ document.querySelectorAll('.tab').forEach(tab => {
 let touchStart = 0;
 
 function toggleTab(tabId) {
-    var content = document.getElementById(tabId);
+    const content = document.getElementById(tabId);
+    const tabElement = content.previousElementSibling;
+    const isActive = content.classList.contains('active');
 
-    // Cambiar la visibilidad de la tabla: ocultar si está visible, mostrar si está oculta.
-    if (content.style.display === "none" || content.style.display === "") {
-        content.style.display = "block";  // Mostrar tabla
-    } else {
-        content.style.display = "none";   // Ocultar tabla
+    // Cierra todas las demás
+    document.querySelectorAll('.content').forEach(el => {
+        el.classList.remove('active', 'visible');
+        el.style.height = 0;
+    });
+
+    if (!isActive) {
+        // Medir la altura
+        const fullHeight = content.scrollHeight + "px";
+
+        content.classList.add('active');
+        content.style.height = fullHeight;
+
+        // Mostrar contenido con opacidad
+        setTimeout(() => {
+            content.classList.add('visible');
+        }, 200);
+
+        // HACER SCROLL DESPUÉS DE QUE TODO SE ABRIÓ
+        setTimeout(() => {
+            const headerHeight = document.querySelector('.header')?.offsetHeight || 60;
+            const y = tabElement.getBoundingClientRect().top + window.scrollY - headerHeight - 10;
+        
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        }, 500);
+         // Esperamos un poco más para asegurarnos que ya se expandió
     }
 }
+
+
+
+
+
 
 document.addEventListener("DOMContentLoaded", function() {
     let tabs = document.querySelectorAll(".tab");
