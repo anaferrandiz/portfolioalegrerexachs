@@ -486,6 +486,9 @@ body {
     .header__h1,
     .header__btn {
         padding: .5rem 1rem;
+        color: black;
+
+
     }
 
     .principal__img {

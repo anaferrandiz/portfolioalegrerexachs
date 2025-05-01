@@ -7,7 +7,7 @@ const carruseles = document.querySelectorAll('.carrusel');
 carruseles.forEach(carrusel => {
     let posicion = 0;
     const totalImagenes = 3;
-    
+
     let siguiente = carrusel.querySelector('.siguiente');
     let anterior = carrusel.querySelector('.anterior');
     const carrouselBtns = carrusel.querySelectorAll('.carrusel__btn span');
@@ -112,9 +112,17 @@ carruseles.forEach(carrusel => {
         });
     });
 
-    // Activar el carrusel al pasar el ratón sobre el carrusel
-    carrusel.addEventListener('mouseenter', startCarousel);
-    carrusel.addEventListener('mouseleave', stopCarousel);
+    // Detectar si es móvil
+    const isMobile = window.matchMedia("(max-width: 1000px)").matches;
+
+    if (isMobile) {
+        startCarousel(); // En móvil, iniciar automáticamente
+    } else {
+        // En escritorio, iniciar al hacer hover
+        carrusel.addEventListener('mouseenter', startCarousel);
+        carrusel.addEventListener('mouseleave', stopCarousel);
+    }
+
 });
 
 document.querySelectorAll('.tab').forEach(tab => {
@@ -159,10 +167,10 @@ function toggleTab(tabId) {
         setTimeout(() => {
             const headerHeight = document.querySelector('.header')?.offsetHeight || 60;
             const y = tabElement.getBoundingClientRect().top + window.scrollY - headerHeight - 10;
-        
+
             window.scrollTo({ top: y, behavior: 'smooth' });
         }, 500);
-         // Esperamos un poco más para asegurarnos que ya se expandió
+        // Esperamos un poco más para asegurarnos que ya se expandió
     }
 }
 
@@ -171,27 +179,27 @@ function toggleTab(tabId) {
 
 
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     let tabs = document.querySelectorAll(".tab");
 
     tabs.forEach(tab => {
         // Añadir evento de clic para desplegar las tablas
-        tab.addEventListener("click", function(event) {
+        tab.addEventListener("click", function (event) {
             event.preventDefault(); // Evitar acción por defecto (si existe)
             const tabId = this.nextElementSibling.id;
             toggleTab(tabId);  // Desplegar/ocultar el contenido asociado
         });
 
         // Añadir evento de touchstart para detectar si es un toque
-        tab.addEventListener("touchstart", function(event) {
+        tab.addEventListener("touchstart", function (event) {
             // Registrar la posición de inicio del toque
             touchStart = event.touches[0].clientY;
         });
 
         // Añadir evento de touchend con un pequeño retraso
-        tab.addEventListener("touchend", function(event) {
+        tab.addEventListener("touchend", function (event) {
             const touchEnd = event.changedTouches[0].clientY;
-            
+
             // Verificar si el usuario está desplazando (más de un pequeño umbral de distancia)
             if (Math.abs(touchStart - touchEnd) < 20) { // Umbral de 20px para detectar un clic
                 event.preventDefault();  // Evitar acción por defecto
