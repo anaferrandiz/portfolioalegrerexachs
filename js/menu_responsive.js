@@ -61,3 +61,16 @@ headerBtn.addEventListener('click', () => {
 });
 
 
+// CAMBIO DE COLOR EN HEADER__H1 AL HACER SCROLL
+
+
+  const title = document.querySelector('.header__h1');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+      title.classList.add('gradient-animated-text');
+    } else {
+      title.classList.remove('gradient-animated-text');
+    }
+  });
+
