@@ -135,10 +135,10 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 1rem;
-    margin-top:5rem;
+    margin-top: 5rem;
 }
 
-.wrap__konngol{
+.wrap__konngol {
     row-gap: 4rem;
 }
 
@@ -212,11 +212,11 @@ body {
     color: var(--color-enlaces);
 }
 
-.img__konngol__ultim{
+.img__konngol__ultim {
     margin-top: -2rem;
 }
 
-.wrapper__contacto{
+.wrapper__contacto {
     width: 100%;
     min-height: 90vh;
 
@@ -226,10 +226,11 @@ body {
     align-items: center;
 }
 
-.ig{
+.ig {
     width: 80%;
     margin-top: 2rem;
 }
+
 /*************************** INICIO PÁGINA ARRELA'T  *****************************/
 
 .pedalucha__imgs .imagen__arrelat__01 {
