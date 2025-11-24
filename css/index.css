@@ -490,11 +490,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-      font-size: 2em;
+    font-size: 2em;
     font-weight: 500;
     cursor: pointer;
     transition: opacity 0.6s ease;
 }
+
+
+
 .fade-text {
     opacity: 0;
     animation: fadeIn 2s ease forwards;
@@ -505,11 +508,13 @@ body {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 .hidden {
     opacity: 0;
     pointer-events: none;
@@ -519,6 +524,7 @@ body {
     opacity: 0;
     pointer-events: none;
 }
+
 /* *************** FIN MAIN PRINCIPAL MODO DESKTOP * ***************/
 
 
@@ -677,6 +683,12 @@ body {
     .wrapper__logproyecto__h3 img {
         /* width: 8rem; */
     }
+
+
+.wrap_name {
+    align-items: flex-start;
+  padding-top: 20rem;
+}
 }
 
 @media (min-width: 1001px) {
