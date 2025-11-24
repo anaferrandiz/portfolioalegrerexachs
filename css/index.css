@@ -105,24 +105,25 @@ body {
 /* Animación del degradado */
 @keyframes gradientShift {
     0% {
-      background-position: 50% 0%;
+        background-position: 50% 0%;
     }
+
     100% {
-      background-position: 50% 100%;
+        background-position: 50% 100%;
     }
-  }
-  
-  /* Clase con animación de degradado en el texto */
-  .gradient-animated-text {
+}
+
+/* Clase con animación de degradado en el texto */
+.gradient-animated-text {
     background: linear-gradient(180deg, #ff8d36, #feb176, #ff8d36, rgb(242, 242, 255));
     background-size: 400% 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradientShift 5s linear infinite;
     transition: all 0.3s ease;
-  }
-  
-  
+}
+
+
 
 .header__h1:hover {
     color: #ff8d36;
@@ -423,6 +424,65 @@ body {
 /***************** FIN CARRUSEL *****************/
 
 
+/* *************** MAIN PRINCIPAL MODO DESKTOP * ***************/
+
+
+.wrapper__section__principal {
+    width: 100%;
+    padding: 2rem;
+    margin-top: 4rem;
+    /* position: relative; */
+}
+
+.wrap__projects {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem .5rem;
+    border-top: 1px dotted #000000;
+    position: relative;
+    font-weight: 300;
+}
+
+.wrap__projects:hover {
+    background-color: rgb(233, 233, 233);
+}
+
+.principal__h2__proj {
+    font-size: 1.3em;
+}
+
+
+.principal__text__proj {
+    max-width: 20rem;
+}
+
+.imgs__projects {
+    position: fixed;
+    /* se saca del flujo y se pega a la pantalla */
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 20rem;
+    /* tamaño relativo a la pantalla */
+    opacity: 0;
+    pointer-events: none;
+    /* evita interferir con el hover */
+    transition: opacity .3s ease, transform .4s ease;
+    z-index: 2;
+}
+
+.imgs__projects.isVisible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+
+/* *************** FIN MAIN PRINCIPAL MODO DESKTOP * ***************/
+
+
 /***************** ANIMACIONES ****************/
 
 @keyframes aparecer {
@@ -445,6 +505,10 @@ body {
 /****************** MEDIA QUERIES ******************/
 
 @media (max-width: 1000px) {
+
+    .wrapper__section__principal {
+        display: none;
+    }
 
     .principal__grid {
         width: 96%;
