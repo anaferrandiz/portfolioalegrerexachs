@@ -1,211 +1,154 @@
 'use strict';
 
-// CARRUSELES INDEX 
-// Selecciona todos los carruseles
-const carruseles = document.querySelectorAll('.carrusel');
+document.addEventListener('DOMContentLoaded', () => {
 
-carruseles.forEach(carrusel => {
-    let posicion = 0;
-    const totalImagenes = 3;
+  // --------- CARRUSELES ---------
+  const carruseles = document.querySelectorAll('.carrusel');
 
-    let siguiente = carrusel.querySelector('.siguiente');
-    let anterior = carrusel.querySelector('.anterior');
-    const carrouselBtns = carrusel.querySelectorAll('.carrusel__btn span');
-    const carrouselButton = carrusel.querySelectorAll('.carrusel__btn');
-    let carrouselContainer = carrusel.querySelector('.carrusel__img');
-    let interval;
+  carruseles.forEach(carrusel => {
+    try {
 
-    // Variables para detectar el gesto táctil
-    let touchStartX = 0;
-    let touchEndX = 0;
+      const container = carrusel.querySelector('.carrusel__img');
+      if (!container) throw new Error("No se encontró .carrusel__img");
 
-    const desplazarContainer = function () {
-        carrouselContainer.style.transform = `translateX(-${posicion * (100 / totalImagenes)}%)`;
-        actualizarProgressBar();
-    };
+      const slides = container.children;
+      const total = slides.length;
 
-    const actualizarProgressBar = function () {
-        carrouselBtns.forEach((btn, index) => {
-            btn.style.transition = "none"; // Eliminamos transiciones previas
-            btn.style.width = "0%"; // Reseteamos todas las barras
+      const indicadores = carrusel.querySelectorAll('.carrusel__btn span');
+      const btnSiguiente = carrusel.querySelector('.siguiente');
+      const btnAnterior = carrusel.querySelector('.anterior');
+
+      if (!total) throw new Error("Carrusel sin imágenes");
+
+      let posicion = 0;
+
+      // ---- ACTUALIZAR ----
+      function actualizar() {
+        container.style.transform = `translateX(-${posicion * (100 / total)}%)`;
+
+        indicadores.forEach((ind, i) => {
+          ind.classList.toggle('active', i === posicion);
         });
+      }
 
-        setTimeout(() => {
-            carrouselBtns[posicion].style.transition = "width 3s linear";
-            carrouselBtns[posicion].style.width = "100%";
-        }, 10);
-    };
+      // ---- BOTONES ----
+      if (btnSiguiente) {
+        btnSiguiente.addEventListener('click', () => {
+          posicion = (posicion + 1) % total;
+          actualizar();
+        });
+      }
 
-    const startCarousel = function () {
-        stopCarousel();
-        actualizarProgressBar();
-        interval = setInterval(() => {
-            posicion = (posicion + 1) % totalImagenes;
-            desplazarContainer();
-        }, 3000);
-    };
+      if (btnAnterior) {
+        btnAnterior.addEventListener('click', () => {
+          posicion = (posicion - 1 + total) % total;
+          actualizar();
+        });
+      }
 
-    const stopCarousel = function () {
-        clearInterval(interval);
-    };
+      // ---- INDICADORES ----
+      indicadores.forEach((ind, i) => {
+        ind.addEventListener('click', () => {
+          posicion = i;
+          actualizar();
+        });
+      });
 
-    // Función para manejar el gesto táctil
-    const handleTouchStart = (e) => {
-        touchStartX = e.touches[0].clientX; // Captura la posición inicial del toque
-    };
+      // ---- SWIPE (funcional y limpio) ----
+      let startX = 0;
+      let endX = 0;
 
-    const handleTouchMove = (e) => {
-        if (!touchStartX) return; // Si no hay un toque inicial, no hacer nada
-        touchEndX = e.touches[0].clientX; // Captura la posición final del toque
-    };
+      carrusel.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+        endX = 0;
+      }, { passive: true });
 
-    const handleTouchEnd = () => {
-        if (!touchStartX || !touchEndX) return; // Si no hay un toque inicial o final, no hacer nada
+      carrusel.addEventListener('touchmove', e => {
+        endX = e.touches[0].clientX;
+      }, { passive: true });
 
-        const diffX = touchStartX - touchEndX; // Calcula la diferencia en el eje X
+      carrusel.addEventListener('touchend', () => {
+        if (!startX || !endX) return;
 
-        if (diffX > 50) {
-            // Deslizamiento hacia la izquierda (pasar a la siguiente imagen)
-            posicion = (posicion + 1) % totalImagenes;
-            desplazarContainer();
-        } else if (diffX < -50) {
-            // Deslizamiento hacia la derecha (pasar a la imagen anterior)
-            posicion = (posicion - 1 + totalImagenes) % totalImagenes;
-            desplazarContainer();
+        const diff = startX - endX;
+
+        if (diff > 50) {
+          posicion = (posicion + 1) % total;
+        } else if (diff < -50) {
+          posicion = (posicion - 1 + total) % total;
         }
 
-        // Reinicia las variables
-        touchStartX = 0;
-        touchEndX = 0;
-    };
+        actualizar();
+        startX = 0;
+        endX = 0;
+      });
 
-    // Agregar event listeners para los gestos táctiles
-    carrusel.addEventListener('touchstart', handleTouchStart, false);
-    carrusel.addEventListener('touchmove', handleTouchMove, false);
-    carrusel.addEventListener('touchend', handleTouchEnd, false);
+      actualizar();
 
-    carrouselBtns.forEach(function (btn, i) {
-        btn.addEventListener('click', function () {
-            posicion = i;
-            desplazarContainer();
-        });
-    });
-
-    if (siguiente) {
-        siguiente.addEventListener('click', function () {
-            posicion = (posicion + 1) % totalImagenes;
-            desplazarContainer();
-        });
+    } catch (err) {
+      console.warn("Carrusel con error (pero seguimos el script):", err);
     }
+  });
 
-    if (anterior) {
-        anterior.addEventListener('click', function () {
-            posicion = (posicion - 1 + totalImagenes) % totalImagenes;
-            desplazarContainer();
-        });
-    }
+  // --------- TABS ---------
+  let touchStart = 0;
 
-    carrouselButton.forEach(function (btn, i) {
-        btn.addEventListener('click', function () {
-            posicion = i;
-            desplazarContainer();
-        });
-    });
-
-    // Detectar si es móvil
-    const isMobile = window.matchMedia("(max-width: 1000px)").matches;
-
-    if (isMobile) {
-        startCarousel(); // En móvil, iniciar automáticamente
-    } else {
-        // En escritorio, iniciar al hacer hover
-        carrusel.addEventListener('mouseenter', startCarousel);
-        carrusel.addEventListener('mouseleave', stopCarousel);
-    }
-
-});
-
-document.querySelectorAll('.tab').forEach(tab => {
-    tab.addEventListener('keydown', function (event) {
-        if (event.key === 'Enter' || event.key === ' ') {
-            this.click();
-        }
-    });
-});
-
-// FIN CARRUSELES INDEX 
-
-
-// --------- PESTAÑAS
-
-let touchStart = 0;
-
-function toggleTab(tabId) {
+  function toggleTab(tabId) {
     const content = document.getElementById(tabId);
+    if (!content) return;
+
     const tabElement = content.previousElementSibling;
     const isActive = content.classList.contains('active');
 
-    // Cierra todas las demás
     document.querySelectorAll('.content').forEach(el => {
-        el.classList.remove('active', 'visible');
-        el.style.height = 0;
+      el.classList.remove('active', 'visible');
+      el.style.height = 0;
     });
 
     if (!isActive) {
-        // Medir la altura
-        const fullHeight = content.scrollHeight + "px";
+      const fullHeight = content.scrollHeight + "px";
+      content.classList.add('active');
+      content.style.height = fullHeight;
 
-        content.classList.add('active');
-        content.style.height = fullHeight;
+      setTimeout(() => content.classList.add('visible'), 200);
 
-        // Mostrar contenido con opacidad
-        setTimeout(() => {
-            content.classList.add('visible');
-        }, 200);
-
-        // HACER SCROLL DESPUÉS DE QUE TODO SE ABRIÓ
-        setTimeout(() => {
-            const headerHeight = document.querySelector('.header')?.offsetHeight || 60;
-            const y = tabElement.getBoundingClientRect().top + window.scrollY - headerHeight - 10;
-
-            window.scrollTo({ top: y, behavior: 'smooth' });
-        }, 500);
-        // Esperamos un poco más para asegurarnos que ya se expandió
+      setTimeout(() => {
+        const headerHeight = document.querySelector('.header')?.offsetHeight || 60;
+        const y = tabElement.getBoundingClientRect().top + window.scrollY - headerHeight - 10;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }, 500);
     }
-}
+  }
 
+  const tabs = document.querySelectorAll(".tab");
 
-
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    let tabs = document.querySelectorAll(".tab");
-
-    tabs.forEach(tab => {
-        // Añadir evento de clic para desplegar las tablas
-        tab.addEventListener("click", function (event) {
-            event.preventDefault(); // Evitar acción por defecto (si existe)
-            const tabId = this.nextElementSibling.id;
-            toggleTab(tabId);  // Desplegar/ocultar el contenido asociado
-        });
-
-        // Añadir evento de touchstart para detectar si es un toque
-        tab.addEventListener("touchstart", function (event) {
-            // Registrar la posición de inicio del toque
-            touchStart = event.touches[0].clientY;
-        });
-
-        // Añadir evento de touchend con un pequeño retraso
-        tab.addEventListener("touchend", function (event) {
-            const touchEnd = event.changedTouches[0].clientY;
-
-            // Verificar si el usuario está desplazando (más de un pequeño umbral de distancia)
-            if (Math.abs(touchStart - touchEnd) < 20) { // Umbral de 20px para detectar un clic
-                event.preventDefault();  // Evitar acción por defecto
-                const tabId = this.nextElementSibling.id;
-                toggleTab(tabId);  // Desplegar/ocultar el contenido asociado
-            }
-        });
+  tabs.forEach(tab => {
+    tab.addEventListener("click", function (event) {
+      event.preventDefault();
+      const next = this.nextElementSibling;
+      if (next?.id) toggleTab(next.id);
     });
+
+    tab.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        const next = this.nextElementSibling;
+        if (next?.id) toggleTab(next.id);
+      }
+    });
+
+    tab.addEventListener("touchstart", e => {
+      touchStart = e.touches[0].clientY;
+    }, { passive: true });
+
+    tab.addEventListener("touchend", function (e) {
+      const touchEnd = e.changedTouches[0].clientY;
+      if (Math.abs(touchStart - touchEnd) < 20) {
+        e.preventDefault();
+        const next = this.nextElementSibling;
+        if (next?.id) toggleTab(next.id);
+      }
+    }, { passive: false });
+  });
+
 });
