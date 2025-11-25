@@ -3,6 +3,7 @@
     padding: 0;
     border: 0;
     box-sizing: border-box;
+    cursor: none !important;
 }
 
 li {
@@ -704,3 +705,4 @@ body {
         display: none;
     }
 }
+
