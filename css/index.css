@@ -299,6 +299,7 @@ body {
     z-index: 1;
 }
 
+
 .wrapper__logproyecto__h3 {
     width: 100%;
     min-height: 100%;
@@ -316,9 +317,11 @@ body {
     width: 18vh;
 }
 
+
 .logo__konngol img {
     width: 25vh;
 }
+
 
 .logoproyecto__h3 {
     color: white;
@@ -327,6 +330,7 @@ body {
     cursor: pointer;
     transition: all .4s ease;
 }
+
 
 .logoproyecto__h3:hover {
     transform: scale(1.05);
@@ -382,9 +386,10 @@ body {
     background-color: rgb(217, 217, 217);
     /* transition: width 3s linear; */
 }
+
 .carrusel__btn span.active {
     background-color: rgb(217, 217, 217);
-  width: 100%;
+    width: 100%;
 }
 
 .progress-bar {
@@ -570,6 +575,11 @@ body {
         font-size: 12vw;
     }
 
+    .logoproyecto__h3__breva {
+        text-align: center;
+        font-size: 11vw;
+    }
+
     .carrusel__btn {
         width: 15vw;
     }
@@ -690,10 +700,10 @@ body {
     }
 
 
-.wrap_name {
-    align-items: flex-start;
-  padding-top: 20rem;
-}
+    .wrap_name {
+        align-items: flex-start;
+        padding-top: 20rem;
+    }
 }
 
 @media (min-width: 1001px) {
@@ -705,4 +715,3 @@ body {
         display: none;
     }
 }
-
